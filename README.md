@@ -24,4 +24,4 @@ https://bonvivir.com => sistema de subscripciones.
 
 https://listado.mercadolibre.com.ar => sistema de presentacion de producto, facilidad y organizacion.
 
-LINK GITHUB= https://www.figma.com/file/toR91ScbcWuwtWewOKuj5p/Untitled?node-id=0%3A1
+LINK FIGMA= https://www.figma.com/file/toR91ScbcWuwtWewOKuj5p/Untitled?node-id=0%3A1
