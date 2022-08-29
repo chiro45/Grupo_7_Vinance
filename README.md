@@ -12,3 +12,14 @@ Nuestro ajuste para nuestro producto, es una plataforma simple, accesible y sin 
 
 Se contara con una membrecia, para los usuarios que quieran obtener descuentos y promociones.
 
+PAGINAS EN LAS QUE NOS INSPIRAMOS
+
+https://www.solyvinomendoza.com => apunta al mismo publico y es una competencia directa en mendoza para nuestro producto.
+
+https://www.vinosyspirits.com => Funcionalidad, estetica y contenido.
+
+https://www.gaw.cl/packs => Estetica.
+
+https://bonvivir.com => sistema de subscripciones.
+
+https://listado.mercadolibre.com.ar => sistema de presentacion de producto, facilidad y organizacion.
