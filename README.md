@@ -6,3 +6,9 @@ Ya que nos encontramos en Mendoza, una de la provincias con uno de los niveles m
 Servicios=>
 
 Audiencia Objetivo=> Todo aquel público amante del buen vino, mayores de edad, que estén dispuestos a nuevas experiencias y repetirlas, les ofrecemos un lugar donde puedan encontrar diferentes variedades desde la comodidad de su casa.
+
+Ajuste de propuesta => Tenemos un rango etario bastante amplio, segun diferentes encuestas consultadas, nuestro publico comienza a consumir vino significativamente a partir de los 30 años en adelante siendo los 50 años el mayor porcentaje de el publico el cual consume vino.
+Nuestro ajuste para nuestro producto, es una plataforma simple, accesible y sin distracciones. Para que un usuario pueda tener la mejor experiencia desde la comodidad de su casa.
+
+Se contara con una membrecia, para los usuarios que quieran obtener descuentos y promociones.
+
