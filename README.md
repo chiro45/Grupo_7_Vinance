@@ -12,6 +12,21 @@ Nuestro ajuste para nuestro producto, es una plataforma simple, accesible y sin 
 
 Se contara con una membrecia, para los usuarios que quieran obtener descuentos y promociones.
 
+Integrantes:
+
+Chiroli Luciano
+
+Jofré Lautaro
+
+Pitton Federico:
+      Tecnologias: Java, JavaScript, HTML, CSS, Git, MySql
+
+Zuñiga Candela
+
+Zuñiga Maximiliano
+
+
+
 PAGINAS EN LAS QUE NOS INSPIRAMOS
 
 https://www.solyvinomendoza.com => apunta al mismo publico y es una competencia directa en mendoza para nuestro producto.
