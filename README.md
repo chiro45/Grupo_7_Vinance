@@ -19,7 +19,7 @@ Chiroli Luciano
 Jofré Lautaro
 
 Pitton Federico:
-      Tecnologias: Java, JavaScript, HTML, CSS, Git, MySql
+     Tecnologias: Java, JavaScript, HTML, CSS, Git, MySql
 
 Zuñiga Candela
 
