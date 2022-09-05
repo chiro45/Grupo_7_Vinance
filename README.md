@@ -22,7 +22,7 @@ Pitton Federico: Java, JavaScript, HTML, CSS, Git, MySql
 
 Zuñiga Candela
 
-Zuñiga Maximiliano
+Zuñiga Maximiliano: Java, C++, Python, JavaScript, HTML, CSS, Git...
 
 
 
