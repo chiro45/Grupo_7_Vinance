@@ -1,5 +1,6 @@
 package com.grupo7.vinoteca;
 
+import com.grupo7.vinoteca.entities.Wines;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
