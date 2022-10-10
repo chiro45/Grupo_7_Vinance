@@ -14,7 +14,7 @@ Se contara con una membrecia, para los usuarios que quieran obtener descuentos y
 
 Tecnologias Integrantes:
 
-Chiroli Luciano
+Chiroli Luciano: Javascript, Java, HTML5,CSS, MySql
 
 Jofré Lautaro
 
