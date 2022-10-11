@@ -23,5 +23,4 @@ public class Vendedor extends User_information{
     @OneToMany(mappedBy = "vendedor")
     private List<Factura> ticket;
 
-
 }
