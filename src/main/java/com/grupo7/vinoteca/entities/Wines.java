@@ -21,7 +21,4 @@ public class Wines extends Base_Information {
     private String category;
     private String varietal;
 
-
-
-
 }
