@@ -23,6 +23,4 @@ public class Usuario extends User_information{
 
     @OneToMany(mappedBy = "usuario")
     private List<Factura> receipt;
-
-
 }
