@@ -20,6 +20,6 @@ public class Vendedor extends User_information{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "vendedor")
+    @OneToMany(mappedBy = "seller")
     private List<Factura> ticket;
 }

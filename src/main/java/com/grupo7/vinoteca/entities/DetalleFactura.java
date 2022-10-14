@@ -23,7 +23,15 @@ public class DetalleFactura {
     private int stock;
     private int subtotal;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_wine")
     private Wines wine;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_accesory")
     private Accessories accessory;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "fk_factura")
+    private Factura ticket;
 }
