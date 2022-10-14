@@ -15,11 +15,17 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario extends User_information{
+public class Usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String alias;
+    private String lastName;
+    private String email;
+    protected String password;
+    private String avatar;
     private Date birthday;
 
     @OneToMany(mappedBy = "user")

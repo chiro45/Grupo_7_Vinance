@@ -13,9 +13,15 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Accessories extends  Base_Information{
+public class Accessories{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String name;
+    private String description;
+    private long price;
+    private String brand;
+    private String image;
+    private int stock;
 }
