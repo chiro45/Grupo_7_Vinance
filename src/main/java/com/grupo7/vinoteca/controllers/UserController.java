@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/users")
 public class UserController {
-/*
+
     private UserService userService;
 
     public UserController(UserService userService){
         this.userService = userService;
     }
 
-    @GetMapping("")
+    @GetMapping("/get")
     public ResponseEntity<?> getAll(){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(userService.findAll());
@@ -62,5 +62,5 @@ public class UserController {
         }
     }
 
- */
+
 }
