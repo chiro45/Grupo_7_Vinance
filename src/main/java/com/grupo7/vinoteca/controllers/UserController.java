@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/users")
 public class UserController {
-
+/*
     private UserService userService;
 
     public UserController(UserService userService){
@@ -61,4 +61,6 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error, por favor intente nuevamente...\"");
         }
     }
+
+ */
 }
