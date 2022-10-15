@@ -9,8 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SellerRepository extends JpaRepository<Seller, Long> {
 
-    @Query(value ="SELECT * FROM vendedor WHERE vendedor.name = :user ", nativeQuery = true)
-    Seller findUserAndPasswd(@Param("user") String user, @Param("passwd") String passwd);
+
 
 
 

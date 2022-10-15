@@ -76,17 +76,7 @@ public class SellerService implements BaseService<Seller>{
         }
     }
 
-    @Transactional
-    public Seller findUserAndPasswd(String user, String passwd) throws Exception {
-        try{
-            Seller entities = this.repository.findUserAndPasswd(user, passwd);
-            System.out.println(entities);
-            return entities;
-        }catch (Exception e) {
-            throw new Exception(e.getMessage());
-        }
 
-    }
 
 
 

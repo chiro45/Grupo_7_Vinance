@@ -61,19 +61,7 @@ public class SellerController {
         }
     }
 
-    @GetMapping("/{user}/{passwd}")
-    public String vendorUserLogin( @RequestParam String user,@RequestParam String passwd) {
-        try {
-            Seller vendor = this.svcVendedor.findUserAndPasswd(user, passwd);
 
-            System.out.println("exisste nazi");
-                return "El vendedor se ha logueado correctamente ";
-
-        } catch (Exception e) {
-            System.out.println("no existe pa");
-            return "Usuario o contraseña incorrectos";
-        }
-    }
 
 
 
