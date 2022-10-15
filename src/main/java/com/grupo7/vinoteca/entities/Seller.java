@@ -6,22 +6,27 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
-@Entity //Cuando se arranque la app esta anotacion permite que se mapee en la db como una tabla
-@Table(name = "accessories") //Sobreescribe el nombre de la tabla para el que queramos
+@Entity
+@Table(name = "sellers")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Accessories{
+public class Seller {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String description;
-    private long price;
-    private String brand;
-    private String image;
-    private int stock;
+    private String lastName;
+    private String email;
+    protected String password;
+    private String avatar;
+    private Date birthday;
+
+    @OneToMany(mappedBy = "seller")
+    private List<Ticket> ticket;
 }

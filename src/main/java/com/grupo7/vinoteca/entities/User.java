@@ -10,18 +10,18 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "users")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Usuario{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String alias;
+    private String nick;
     private String lastName;
     private String email;
     protected String password;
@@ -29,5 +29,5 @@ public class Usuario{
     private Date birthday;
 
     @OneToMany(mappedBy = "user")
-    private List<Factura> ticket;
+    private List<Ticket> ticket;
 }

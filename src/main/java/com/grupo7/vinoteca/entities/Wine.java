@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wines{
+public class Wine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

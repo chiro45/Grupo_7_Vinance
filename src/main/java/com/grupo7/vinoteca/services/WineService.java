@@ -1,7 +1,7 @@
 package com.grupo7.vinoteca.services;
 
-import com.grupo7.vinoteca.entities.Wines;
-import com.grupo7.vinoteca.repositories.WinesRepository;
+import com.grupo7.vinoteca.entities.Wine;
+import com.grupo7.vinoteca.repositories.WineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WinesService implements  BaseService<Wines>{
+public class WineService implements  BaseService<Wine>{
 
     @Autowired
-    private WinesRepository repository;
+    private WineRepository repository;
     @Override
     @Transactional
-    public List<Wines> findAll() throws Exception {
+    public List<Wine> findAll() throws Exception {
         try {
-            List<Wines> entities = this.repository.findAll();
+            List<Wine> entities = this.repository.findAll();
             return entities;
         } catch (Exception e) {
             throw new Exception((e.getMessage()));
@@ -27,9 +27,9 @@ public class WinesService implements  BaseService<Wines>{
 
     @Override
     @Transactional
-    public Wines findById(long id) throws Exception {
+    public Wine findById(long id) throws Exception {
         try {
-            Optional<Wines> opt = this.repository.findById(id);
+            Optional<Wine> opt = this.repository.findById(id);
             return opt.get();
         } catch (Exception e) {
             throw new Exception((e.getMessage()));
@@ -38,9 +38,9 @@ public class WinesService implements  BaseService<Wines>{
 
     @Override
     @Transactional
-    public Wines saveOne(Wines entity) throws Exception {
+    public Wine save(Wine entity) throws Exception {
         try {
-            Wines wines = this.repository.save(entity);
+            Wine wines = this.repository.save(entity);
             return wines;
         } catch (Exception e) {
             throw new Exception((e.getMessage()));
@@ -49,10 +49,10 @@ public class WinesService implements  BaseService<Wines>{
 
     @Override
     @Transactional
-    public Wines updateOne(Wines entity, long id) throws Exception {
+    public Wine update(Wine entity, long id) throws Exception {
         try {
-            Optional<Wines> opt = this.repository.findById(id);
-            Wines wines = opt.get();
+            Optional<Wine> opt = this.repository.findById(id);
+            Wine wines = opt.get();
             wines = this.repository.save(entity);
             return wines;
         } catch (Exception e) {
@@ -61,11 +61,12 @@ public class WinesService implements  BaseService<Wines>{
     }
 
     @Override
-    public boolean deleteById(long id) throws Exception {
+    @Transactional
+    public boolean delete(long id) throws Exception {
         try {
-            Optional<Wines> opt = this.repository.findById(id);
+            Optional<Wine> opt = this.repository.findById(id);
             if (!opt.isEmpty()) {
-                Wines wines = opt.get();
+                Wine wines = opt.get();
                 this.repository.save(wines);
             } else {
                 throw new Exception();
@@ -77,45 +78,45 @@ public class WinesService implements  BaseService<Wines>{
     }
 
     @Transactional
-    public List<Wines> findByName(String q) throws Exception{
+    public List<Wine> findByName(String q) throws Exception{
         try{
-            List<Wines> entities = this.repository.findByName(q);
+            List<Wine> entities = this.repository.findByName(q);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
     @Transactional
-    public List<Wines> findByCategory(String q) throws Exception{
+    public List<Wine> findByCategory(String q) throws Exception{
         try{
-            List<Wines> entities = this.repository.findByCategory(q);
+            List<Wine> entities = this.repository.findByCategory(q);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
     @Transactional
-    public List<Wines> findByBrand(String q) throws Exception{
+    public List<Wine> findByBrand(String q) throws Exception{
         try{
-            List<Wines> entities = this.repository.findByBrand(q);
+            List<Wine> entities = this.repository.findByBrand(q);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
     @Transactional
-    public List<Wines> findByPrice(String q) throws Exception{
+    public List<Wine> findByPrice(String q) throws Exception{
         try{
-            List<Wines> entities = this.repository.findByPrice(q);
+            List<Wine> entities = this.repository.findByPrice(q);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
     @Transactional
-    public List<Wines> findByVarietal(String q) throws Exception{
+    public List<Wine> findByVarietal(String q) throws Exception{
         try{
-            List<Wines> entities = this.repository.findByVarietal(q);
+            List<Wine> entities = this.repository.findByVarietal(q);
             return entities;
         } catch (Exception e) {
             throw new Exception(e.getMessage());

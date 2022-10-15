@@ -8,12 +8,12 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "detalleFactura")
+@Table(name = "ticketDetails")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DetalleFactura {
+public class TicketDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,13 +25,13 @@ public class DetalleFactura {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_wine")
-    private Wines wine;
+    private Wine wine;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_accesory")
-    private Accessories accessory;
+    @JoinColumn(name = "fk_accessory")
+    private Accessory accessory;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_factura")
-    private Factura ticket;
+    @JoinColumn(name = "fk_ticket")
+    private Ticket ticket;
 }

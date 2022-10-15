@@ -10,30 +10,30 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "factura")
+@Table(name = "tickets")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Factura {
+public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private long nro;
-    private Date fecha;
+    private long number;
+    private Date date;
     private int total;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_seller", nullable = false)
-    private Vendedor seller;
+    private Seller seller;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_user", nullable = false)
-    private Usuario user;
+    private User user;
 
     @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetalleFactura> detalles;
+    private List<TicketDetail> details;
 
 }
