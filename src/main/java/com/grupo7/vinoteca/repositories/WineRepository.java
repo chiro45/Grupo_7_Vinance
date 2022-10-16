@@ -11,18 +11,15 @@ import java.util.List;
 
 @Repository
 public interface WineRepository extends BaseRepository<Wine, Long>  {
-   /*
-    @Query(value = "SELECT * FROM wines WHERE wines.name LIKE %:q%", nativeQuery = true)
-    List<Wine> findByName(@Param("q")String q);
-    @Query(value = "SELECT * FROM wines WHERE wines.price LIKE %:q%", nativeQuery = true)
-    List<Wine> findByPrice(@Param("q")String q);
-    @Query(value = "SELECT * FROM wines WHERE wines.brand LIKE %:q%", nativeQuery = true)
-    List<Wine> findByBrand(@Param("q")String q);
-    @Query(value = "SELECT * FROM wines WHERE wines.category LIKE %:q%", nativeQuery = true)
-    List<Wine> findByCategory(@Param("q")String q);
-    @Query(value = "SELECT * FROM wines WHERE wines.varietal LIKE %:q%", nativeQuery = true)
-    List<Wine> findByVarietal(@Param("q")String q);
 
-   */
 
+    @Query(value = "SELECT * FROM wines WHERE wines.name LIKE %:name% ", nativeQuery = true)
+    List<Wine> findWineForName(String name);
+
+    @Query(value = "SELECT * FROM wines WHERE wines.varietal LIKE %:varietal% ", nativeQuery = true)
+    List<Wine> findWineForVarietal(String varietal);
+
+
+    @Query(value = "SELECT * FROM wines WHERE wines.price < %:price% ", nativeQuery = true)
+    List<Wine> findWineForPrice(String price);
 }

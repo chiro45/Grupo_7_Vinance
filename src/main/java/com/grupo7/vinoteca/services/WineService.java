@@ -1,6 +1,7 @@
 package com.grupo7.vinoteca.services;
 
 import com.grupo7.vinoteca.entities.Accessory;
+import com.grupo7.vinoteca.entities.User;
 import com.grupo7.vinoteca.entities.Wine;
 import com.grupo7.vinoteca.repositories.AccessoryRepository;
 import com.grupo7.vinoteca.repositories.BaseRepository;
@@ -14,13 +15,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WineService extends BaseServiceImp<Wine, Long> {
-    @Autowired
-    private WineRepository wineRepository;
+public interface WineService extends BaseService<Wine, Long> {
 
+    Wine findWineForName(String name) throws Exception;
 
-    public WineService(BaseRepository<Wine, Long> baseRepository){
+    List<Wine> findWineForVarietal(String varietal) throws Exception;
 
-        super(baseRepository);
-    }
+    List<Wine> findWineForPrice(String price) throws Exception;
 }
