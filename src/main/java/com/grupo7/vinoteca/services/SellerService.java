@@ -7,6 +7,5 @@ import java.util.List;
 public interface SellerService extends BaseService<Seller, Long> {
 
 
-
     Seller userLogin(String name, String passwd) throws Exception;
 }
