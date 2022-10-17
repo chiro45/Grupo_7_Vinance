@@ -14,6 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface AccessoryService extends BaseServiceImp<Accessory, Long> {
+public interface AccessoryService extends BaseService<Accessory, Long> {
 
 }
