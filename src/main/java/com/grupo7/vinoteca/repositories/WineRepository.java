@@ -20,6 +20,6 @@ public interface WineRepository extends BaseRepository<Wine, Long>  {
     List<Wine> findWineForVarietal(String varietal);
 
 
-    @Query(value = "SELECT * FROM wines WHERE wines.price < %:price% ", nativeQuery = true)
-    List<Wine> findWineForPrice(String price);
+    @Query(value = "SELECT * FROM wines WHERE wines.price < :price ", nativeQuery = true)
+    List<Wine> findWineForPrice(float price);
 }

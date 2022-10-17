@@ -21,5 +21,5 @@ public interface WineService extends BaseService<Wine, Long> {
 
     List<Wine> findWineForVarietal(String varietal) throws Exception;
 
-    List<Wine> findWineForPrice(String price) throws Exception;
+    List<Wine> findWineForPrice(float price) throws Exception;
 }

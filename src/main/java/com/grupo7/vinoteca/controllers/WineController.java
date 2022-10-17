@@ -30,7 +30,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
     @GetMapping("/searchForPrice")
-    public ResponseEntity<?> findWineForPrice(@RequestParam String price){
+    public ResponseEntity<?> findWineForPrice(@RequestParam float price){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForPrice(price));
         }catch (Exception e){

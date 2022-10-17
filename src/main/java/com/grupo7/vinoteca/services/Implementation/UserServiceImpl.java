@@ -1,5 +1,6 @@
 package com.grupo7.vinoteca.services.Implementation;
 
+import com.grupo7.vinoteca.entities.Seller;
 import com.grupo7.vinoteca.entities.User;
 import com.grupo7.vinoteca.repositories.BaseRepository;
 import com.grupo7.vinoteca.repositories.UserRepository;
@@ -21,11 +22,18 @@ public class UserServiceImpl extends BaseServiceImp<User, Long> implements UserS
     }
 
     @Override
-    public List<User> search(String name, String password) throws Exception {
+    public User loginUser(String name, String password) throws Exception {
         try {
-            List<User> usuarios = userRepository.searchNativo(name, password);
-            return usuarios;
-        } catch (Exception e) {
+            List<User> arrUsers = userRepository.loginUser(name, password);
+
+            if(arrUsers.size() > 0){
+
+                return arrUsers.get(0);
+            }else{
+                return null;
+            }
+
+        }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
     }

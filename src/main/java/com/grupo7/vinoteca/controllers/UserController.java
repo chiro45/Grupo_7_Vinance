@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/users")
 public class UserController extends BaseControllerImpl<User, UserServiceImpl> {
-    @GetMapping("/search")
+    @GetMapping("/login")
     public ResponseEntity<?> search(@RequestParam String name, @RequestParam String password) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.search(name, password));
+            return ResponseEntity.status(HttpStatus.OK).body(service.loginUser(name, password));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }

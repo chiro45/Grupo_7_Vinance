@@ -11,12 +11,8 @@ import java.util.List;
 @Repository
 public interface UserRepository extends BaseRepository<User, Long> {
 
-    List<User> findByNameContainingAndPasswordContaining(String name, String password);
-    @Query(value = "SELECT u FROM User u WHERE u.name LIKE %:name% AND u.password LIKE %:password%")
-    List<User> search(@Param("name") String name, @Param("password") String password);
 
-    @Query(value = "SELECT * FROM users WHERE users.name LIKE %:name% AND users.password LIKE %:password%",
-            nativeQuery = true)
-    List<User> searchNativo(@Param("name") String name, @Param("password") String password);
+    @Query(value = "SELECT * FROM users WHERE users.name = :name AND users.password = :password", nativeQuery = true)
+    List<User> loginUser(@Param("name") String name, @Param("password") String password);
 
 }

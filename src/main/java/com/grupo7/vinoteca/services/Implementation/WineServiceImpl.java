@@ -53,7 +53,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
     //buscar vinos por precio
     @Override
-    public List<Wine> findWineForPrice(String price) throws Exception {
+    public List<Wine> findWineForPrice(float price) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineForPrice(price);
 

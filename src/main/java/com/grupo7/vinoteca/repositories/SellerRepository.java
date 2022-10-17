@@ -12,7 +12,7 @@ public interface SellerRepository  extends BaseRepository<Seller, Long> {
 
 
 
-    @Query(value = "SELECT * FROM sellers WHERE sellers.name LIKE %:name% AND sellers.password LIKE %:passwd%", nativeQuery = true)
+    @Query(value = "SELECT * FROM sellers WHERE sellers.name = :name AND sellers.password = :passwd", nativeQuery = true)
     List<Seller> userLogin(@Param("name") String name, @Param("passwd") String passwd);
 
 
