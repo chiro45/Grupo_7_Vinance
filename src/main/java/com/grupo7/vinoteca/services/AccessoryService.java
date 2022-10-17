@@ -14,13 +14,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccessoryService extends BaseServiceImp<Accessory, Long> {
-    @Autowired
-    private AccessoryRepository accessoryRepository;
+public interface AccessoryService extends BaseServiceImp<Accessory, Long> {
 
-
-    public AccessoryService(BaseRepository<Accessory, Long> baseRepository){
-
-        super(baseRepository);
-    }
 }
