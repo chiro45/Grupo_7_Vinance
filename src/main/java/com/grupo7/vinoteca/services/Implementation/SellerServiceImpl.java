@@ -25,10 +25,6 @@ public class SellerServiceImpl extends BaseServiceImp<Seller, Long> implements S
     }
 
 
-
-
-
-
     //evalua si el usuario Existe
     @Override
     public Seller userLogin(String name, String passwd) throws Exception {
