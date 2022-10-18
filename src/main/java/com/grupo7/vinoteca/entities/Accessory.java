@@ -21,4 +21,5 @@ public class Accessory extends Base {
     private String brand;
     private String image;
     private int stock;
+
 }

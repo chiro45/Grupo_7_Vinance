@@ -1,19 +1,22 @@
 package com.grupo7.vinoteca.services;
 
 import com.grupo7.vinoteca.entities.Accessory;
-import com.grupo7.vinoteca.entities.Seller;
-import com.grupo7.vinoteca.repositories.AccessoryRepository;
-import com.grupo7.vinoteca.repositories.BaseRepository;
-import com.grupo7.vinoteca.repositories.SellerRepository;
-import com.grupo7.vinoteca.services.Implementation.BaseServiceImp;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public interface AccessoryService extends BaseService<Accessory, Long> {
+
+    List<Accessory> findAccesoryByName(String name) throws Exception;
+    Page<Accessory> findAccesoryByName(String name, Pageable pageable) throws Exception;
+
+    List<Accessory> findAccesoryByPrice(float price) throws Exception;
+    Page<Accessory> findAccesoryByPrice(float price, Pageable pageable) throws Exception;
+
+    List<Accessory> findAccesoryByPriceMore(float price) throws Exception;
+    Page<Accessory> findAccesoryByPriceMore(float price, Pageable pageable) throws Exception;
 
 }

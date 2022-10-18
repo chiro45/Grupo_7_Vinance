@@ -19,4 +19,5 @@ public class UserController extends BaseControllerImpl<User, UserServiceImpl> {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
     }
+
 }

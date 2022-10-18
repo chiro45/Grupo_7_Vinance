@@ -4,6 +4,8 @@ import com.grupo7.vinoteca.entities.Base;
 
 import com.grupo7.vinoteca.repositories.BaseRepository;
 import com.grupo7.vinoteca.services.BaseService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import javax.transaction.Transactional;
 import java.io.Serializable;
@@ -22,6 +24,17 @@ public abstract class BaseServiceImp <E extends Base, ID extends Serializable> i
     public List<E> findAll() throws Exception {
         try{
             List<E> entities = repository.findAll();
+            return entities;
+        }catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    @Transactional
+    public Page<E> findAll(Pageable pageable) throws Exception{
+        try{
+            Page<E> entities = repository.findAll(pageable);
             return entities;
         }catch (Exception e){
             throw new Exception(e.getMessage());
@@ -77,6 +90,5 @@ public abstract class BaseServiceImp <E extends Base, ID extends Serializable> i
             throw new Exception(e.getMessage());
         }
     }
-
 
 }

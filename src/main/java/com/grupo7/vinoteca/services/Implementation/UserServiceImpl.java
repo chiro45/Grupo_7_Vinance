@@ -1,15 +1,12 @@
 package com.grupo7.vinoteca.services.Implementation;
 
-import com.grupo7.vinoteca.entities.Seller;
 import com.grupo7.vinoteca.entities.User;
 import com.grupo7.vinoteca.repositories.BaseRepository;
 import com.grupo7.vinoteca.repositories.UserRepository;
-import com.grupo7.vinoteca.services.Implementation.BaseServiceImp;
 import com.grupo7.vinoteca.services.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
 
 @Service
 public class UserServiceImpl extends BaseServiceImp<User, Long> implements UserService {
@@ -37,6 +34,5 @@ public class UserServiceImpl extends BaseServiceImp<User, Long> implements UserS
             throw new Exception(e.getMessage());
         }
     }
+
 }
-
-

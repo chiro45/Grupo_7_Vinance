@@ -1,13 +1,13 @@
 package com.grupo7.vinoteca.controllers.BaseControllerImp;
+
 import com.grupo7.vinoteca.controllers.BaseController.BaseController;
 import com.grupo7.vinoteca.entities.Base;
 import com.grupo7.vinoteca.services.Implementation.BaseServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-
 
 public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceImp<E, Long>> implements BaseController<E, Long> {
 
@@ -23,6 +23,17 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
 
         }
     }
+
+    @GetMapping("/paged")
+    public ResponseEntity<?> getAll(Pageable pageable){
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAll(pageable));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error, por favor intente nuevamente...\"");
+
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id){
         try{
@@ -58,4 +69,5 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error, por favor intente nuevamente...\"");
         }
     }
+
 }

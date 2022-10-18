@@ -15,8 +15,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class TicketDetail extends Base {
 
-
-
     private int price;
     private int stock;
     private int subtotal;
@@ -32,4 +30,5 @@ public class TicketDetail extends Base {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "fk_ticket")
     private Ticket ticket;
+
 }

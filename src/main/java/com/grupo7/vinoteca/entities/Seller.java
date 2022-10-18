@@ -17,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Seller extends Base {
 
-
     private String name;
     private String lastName;
     private String email;
@@ -27,4 +26,5 @@ public class Seller extends Base {
 
     @OneToMany(mappedBy = "seller")
     private List<Ticket> ticket;
+
 }

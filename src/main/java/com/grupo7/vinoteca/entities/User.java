@@ -17,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 public class User  extends Base{
 
-
     private String name;
     private String nick;
     private String lastName;
@@ -28,4 +27,5 @@ public class User  extends Base{
 
     @OneToMany(mappedBy = "user")
     private List<Ticket> ticket;
+
 }

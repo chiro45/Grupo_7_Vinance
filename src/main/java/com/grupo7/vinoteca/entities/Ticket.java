@@ -17,8 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 public class Ticket extends Base {
 
-
-
     private long number;
     private Date date;
     private int total;
