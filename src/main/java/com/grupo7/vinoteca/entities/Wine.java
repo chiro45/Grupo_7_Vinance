@@ -18,10 +18,21 @@ public class Wine extends Base{
     private String name;
     private String description;
     private long price;
-    private String brand;
+
     private String image;
     private int stock;
-    private String category;
-    private String varietal;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "fk_brand")
+    private Brand brand;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "fk_category")
+    private Category category;
+
+    //optional == si o si necesita un varietal
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "fk_varietal")
+    private Varietal varietal;
 
 }
