@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity //Cuando se arranque la app esta anotacion permite que se mapee en la db como una tabla
 @Table(name = "wines") //Sobreescribe el nombre de la tabla para el que queramos
@@ -19,7 +21,7 @@ public class Wine extends Base{
     private String description;
     private long price;
 
-    private String image;
+    //private String image;
     private int stock;
 
     @ManyToOne(optional = false)
@@ -34,5 +36,9 @@ public class Wine extends Base{
     @ManyToOne(optional = false)
     @JoinColumn(name = "fk_varietal")
     private Varietal varietal;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "fk_wine")
+    private List<Image> images = new ArrayList<Image>();
 
 }
