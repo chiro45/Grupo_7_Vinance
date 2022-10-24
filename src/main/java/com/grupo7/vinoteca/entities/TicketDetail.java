@@ -27,8 +27,8 @@ public class TicketDetail extends Base {
     @JoinColumn(name = "fk_accessory")
     private Accessory accessory;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "fk_ticket")
-    private Ticket ticket;
+    //@ManyToOne(cascade = CascadeType.PERSIST)
+    //@JoinColumn(name = "fk_ticket")
+    //private Ticket ticket;
 
 }

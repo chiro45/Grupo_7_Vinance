@@ -24,7 +24,7 @@ public class Seller extends Base {
     private String avatar;
     private Date birthday;
 
-    @OneToMany(mappedBy = "seller")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> ticket;
 
 }

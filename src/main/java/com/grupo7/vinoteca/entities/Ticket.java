@@ -20,16 +20,18 @@ public class Ticket extends Base {
     private long number;
     private Date date;
     private int total;
+    private String seller;
+    private String user;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_seller", nullable = false)
-    private Seller seller;
+    //@ManyToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "fk_seller", nullable = false)
+    //private Seller seller;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_user", nullable = false)
-    private User user;
+    //@ManyToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "fk_user", nullable = false)
+    //private User user;
 
-    @OneToMany(mappedBy = "ticket", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<TicketDetail> details;
 
 }

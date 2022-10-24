@@ -25,7 +25,7 @@ public class User  extends Base{
     private String avatar;
     private Date birthday;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> ticket;
 
 }
