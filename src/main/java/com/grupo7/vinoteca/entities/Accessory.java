@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity //Cuando se arranque la app esta anotacion permite que se mapee en la db como una tabla
 @Table(name = "accessories") //Sobreescribe el nombre de la tabla para el que queramos
@@ -18,7 +20,11 @@ public class Accessory extends Base {
     private String name;
     private String description;
     private long price;
-    private String image;
     private int stock;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "fk_accesory")
+    private List<ImageAccessory> imagesAccesory = new ArrayList<ImageAccessory>();
+
 
 }
