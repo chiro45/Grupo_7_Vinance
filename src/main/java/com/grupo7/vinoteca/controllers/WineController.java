@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
 
     @GetMapping("/search")
-    public ResponseEntity<?> findWineForName(@RequestParam String name){
-        try{
+    public ResponseEntity<?> findWineForName(@RequestParam String name) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForName(name));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
@@ -32,36 +32,37 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
 //    }
 
     @GetMapping("/searchVarietal")
-    public ResponseEntity<?> findWineForVarietal(@RequestParam String varietal){
-        try{
+    public ResponseEntity<?> findWineForVarietal(@RequestParam String varietal) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForVarietal(varietal));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
+
     @GetMapping("/searchVarietal/paged")
-    public ResponseEntity<?> findWineForVarietal(@RequestParam String varietal, Pageable pageable){
-        try{
+    public ResponseEntity<?> findWineForVarietal(@RequestParam String varietal, Pageable pageable) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForVarietal(varietal, pageable));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchForPrice")
-    public ResponseEntity<?> findWineForPrice(@RequestParam float price){
-        try{
+    public ResponseEntity<?> findWineForPrice(@RequestParam float price) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForPrice(price));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchForPrice/paged")
-    public ResponseEntity<?> findWineForPrice(@RequestParam float price, Pageable pageable){
-        try{
+    public ResponseEntity<?> findWineForPrice(@RequestParam float price, Pageable pageable) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForPrice(price, pageable));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }

@@ -39,6 +39,6 @@ public class Wine extends Base{
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_wine")
-    private List<Image> images = new ArrayList<Image>();
+    private List<ImageWine> imagesWine = new ArrayList<ImageWine>();
 
 }

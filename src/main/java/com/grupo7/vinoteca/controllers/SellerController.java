@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class SellerController extends BaseControllerImpl<Seller, SellerServiceImpl> {
 
     @GetMapping("/login")
-    public ResponseEntity<?> userLogin(@RequestParam String name, @RequestParam String passwd){
-        try{
+    public ResponseEntity<?> userLogin(@RequestParam String name, @RequestParam String passwd) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.userLogin(name, passwd));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
