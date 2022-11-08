@@ -28,4 +28,10 @@ public class User  extends Base{
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> ticket;
 
+
+    //PRueba
+    public User(long i, String james_bond) {
+        setId(i);
+        name = james_bond;
+    }
 }

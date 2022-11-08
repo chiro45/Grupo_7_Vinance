@@ -1,3 +1,4 @@
+/*
 package com.grupo7.vinoteca.config;
 
 import org.springframework.context.annotation.Bean;
@@ -23,3 +24,4 @@ public class SpringSecurity {
         return new InMemoryUserDetailsManager(user);
     }
 }
+*/

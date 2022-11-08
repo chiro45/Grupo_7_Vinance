@@ -27,4 +27,8 @@ public class Seller extends Base {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> ticket;
 
+    public Seller(long i, String fede) {
+        setId(i);
+        name=fede;
+    }
 }

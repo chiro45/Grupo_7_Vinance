@@ -6,6 +6,7 @@ import com.grupo7.vinoteca.services.Implementation.WineServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -67,4 +68,21 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
+    @Override
+    @PreAuthorize("hasAuthority('seller:write')")
+    public ResponseEntity<?> save(Wine entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    @PreAuthorize("hasAuthority('seller:write')")
+    public ResponseEntity<?> update(Wine entity, Long id) {
+        return super.update(entity, id);
+    }
+
+    @Override
+    @PreAuthorize("hasAuthority('seller:write')")
+    public ResponseEntity<?> delete(Long id) {
+        return super.delete(id);
+    }
 }
