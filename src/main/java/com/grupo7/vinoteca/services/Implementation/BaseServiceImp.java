@@ -70,11 +70,13 @@ public abstract class BaseServiceImp <E extends Base, ID extends Serializable> i
             Optional<E> optional = repository.findById(id);
             E seller = optional.get();
             seller = repository.save(entity);
+            repository.deleteById(id);
             return seller;
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
     }
+
 
     @Override
     @Transactional

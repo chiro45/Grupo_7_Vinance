@@ -1,9 +1,6 @@
 package com.grupo7.vinoteca.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,12 +10,14 @@ import java.util.List;
 @Table(name = "sellers")
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seller extends Base {
 
     private String name;
     private String lastName;
+    @Column(unique = true)
     private String email;
     protected String password;
     private String avatar;
