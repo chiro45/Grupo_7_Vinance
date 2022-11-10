@@ -16,11 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Wine extends Base{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String name;
     private String description;
     private long price;
-
+    private boolean activo;
     //private String image;
     private int stock;
 

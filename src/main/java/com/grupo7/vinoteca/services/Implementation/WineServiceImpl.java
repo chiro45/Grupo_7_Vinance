@@ -9,7 +9,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineService {
@@ -17,7 +19,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Autowired
     private WineRepository wineRepository;
 
-    public WineServiceImpl(BaseRepository<Wine, Long> baseRepository){
+    public WineServiceImpl(BaseRepository<Wine, Long> baseRepository) {
         super(baseRepository);
     }
 
@@ -27,14 +29,14 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         try {
             List<Wine> arrWines = wineRepository.findWineForName(name);
 
-            if(arrWines.size() > 0){
+            if (arrWines.size() > 0) {
 
                 return arrWines.get(0);
-            }else{
+            } else {
                 return null;
             }
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -57,7 +59,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -69,7 +71,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -82,7 +84,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -94,7 +96,37 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public List<Wine> findAllByActivo() throws Exception {
+        try {
+            List<Wine> entities = this.wineRepository.findAllByActivo();
+            return entities;
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public Wine findByIdAndActivo(long id) throws Exception {
+        try {
+            Optional<Wine> opt = this.wineRepository.findByIdAndActivo(id);
+            return opt.get();
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public List<Wine> findByName(String q) throws Exception {
+        try {
+            List<Wine> entities = this.wineRepository.findByName(q);
+            return entities;
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
