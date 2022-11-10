@@ -5,6 +5,7 @@ import com.grupo7.vinoteca.services.Implementation.AccessoryServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -63,5 +64,23 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
+    }
+
+    @Override
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity<?> save(Accessory entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity<?> update(Accessory entity, Long id) {
+        return super.update(entity, id);
+    }
+
+    @Override
+    @PreAuthorize("hasRole('SELLER')")
+    public ResponseEntity<?> delete(Long id) {
+        return super.delete(id);
     }
 }

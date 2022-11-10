@@ -6,20 +6,21 @@ import com.grupo7.vinoteca.services.Implementation.UserServiceImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "/users")
 public class UserController extends BaseControllerImpl<User, UserServiceImpl> {
-    @GetMapping("/login")
+   /* @GetMapping("/login")
     public ResponseEntity<?> search(@RequestParam String name, @RequestParam String password) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.loginUser(name, password));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(("{\"error\": \"" + e.getMessage() + "\"}"));
         }
-    }
+    }*/
 
     @GetMapping("/search")
     public ResponseEntity<?> findUserByName(@RequestParam String name) {
@@ -39,4 +40,21 @@ public class UserController extends BaseControllerImpl<User, UserServiceImpl> {
         }
     }
 
+    @Override
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> save(User entity) {
+        return super.save(entity);
+    }
+
+    @Override
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> update(User entity, Long id) {
+        return super.update(entity, id);
+    }
+
+    @Override
+    @PreAuthorize("hasRole('USER')")
+    public ResponseEntity<?> delete(Long id) {
+        return super.delete(id);
+    }
 }

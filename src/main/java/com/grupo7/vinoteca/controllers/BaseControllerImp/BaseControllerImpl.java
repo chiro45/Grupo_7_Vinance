@@ -55,6 +55,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiceIm
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@RequestBody E entity, @PathVariable Long id){
         try{
+
             return ResponseEntity.status(HttpStatus.OK).body(service.update(entity, id));
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error, por favor intente nuevamente...\"");
