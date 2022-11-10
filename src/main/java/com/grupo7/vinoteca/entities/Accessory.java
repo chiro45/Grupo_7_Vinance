@@ -21,6 +21,7 @@ public class Accessory extends Base {
     private String description;
     private long price;
     private int stock;
+    private boolean activo;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_accesory")

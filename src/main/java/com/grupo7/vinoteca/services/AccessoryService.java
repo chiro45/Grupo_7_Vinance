@@ -1,6 +1,7 @@
 package com.grupo7.vinoteca.services;
 
 import com.grupo7.vinoteca.entities.Accessory;
+import com.grupo7.vinoteca.entities.Wine;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,5 +19,8 @@ public interface AccessoryService extends BaseService<Accessory, Long> {
 
     List<Accessory> findAccesoryByPriceMore(float price) throws Exception;
     Page<Accessory> findAccesoryByPriceMore(float price, Pageable pageable) throws Exception;
+    public List<Accessory> findAllByActivo() throws Exception;
+    Accessory findByIdAndActivo(long id) throws Exception;
+    List<Accessory> findByName(String d) throws Exception;
 
 }
