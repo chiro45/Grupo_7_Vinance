@@ -1,6 +1,7 @@
 package com.grupo7.vinoteca.services.Implementation;
 
 import com.grupo7.vinoteca.entities.Accessory;
+import com.grupo7.vinoteca.entities.Wine;
 import com.grupo7.vinoteca.repositories.AccessoryRepository;
 import com.grupo7.vinoteca.repositories.BaseRepository;
 import com.grupo7.vinoteca.services.AccessoryService;
@@ -46,9 +47,9 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public List<Accessory> findAccesoryByPrice(float price) throws Exception {
+    public List<Accessory> findAccesoryByPriceLower(float price) throws Exception {
         try {
-            List<Accessory> accessories = accessoryRepository.findAccesoryByPrice(price);
+            List<Accessory> accessories = accessoryRepository.findAccesoryByPriceLower(price);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -56,9 +57,18 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public Page<Accessory> findAccesoryByPrice(float price, Pageable pageable) throws Exception {
+    public Page<Accessory> findAccesoryByPriceLowerPaged(float price, Pageable pageable) throws Exception {
         try {
-            Page<Accessory> accessories = accessoryRepository.findAccesoryByPricePaged(price, pageable);
+            Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceLowerPaged(price, pageable);
+            return accessories;
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    public List<Accessory> findAccesoryByPriceUpper(float price) throws Exception {
+        try {
+            List<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpper(price);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -66,9 +76,9 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public List<Accessory> findAccesoryByPriceMore(float price) throws Exception {
+    public Page<Accessory> findAccesoryByPriceUpperPaged(float price, Pageable pageable) throws Exception {
         try {
-            List<Accessory> accessories = accessoryRepository.findAccesoryByPriceMore(price);
+            Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpperPaged(price, pageable);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -76,10 +86,72 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public Page<Accessory> findAccesoryByPriceMore(float price, Pageable pageable) throws Exception {
+    public List<Accessory> findAccessoryByPriceEquals(float price) throws Exception {
         try {
-            Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceMorePaged(price, pageable);
+            List<Accessory> accessories = accessoryRepository.findAccessoryByPriceEquals(price);
+
             return accessories;
+
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public Page<Accessory> findAccessoryByPriceEqualsPaged(float price, Pageable pageable) throws Exception {
+        try {
+            Page<Accessory> accessories = accessoryRepository.findAccessoryByPriceEqualsPaged(price, pageable);
+
+            return accessories;
+
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Accessory> findAccessoryByStock() throws Exception {
+        try {
+            List<Accessory> accessories = accessoryRepository.findAccessoryByStock();
+
+            return accessories;
+
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public Page<Accessory> findAccessoryByStockPaged(Pageable pageable) throws Exception {
+        try {
+            Page<Accessory> accessories = accessoryRepository.findAccessoryByStockPaged(pageable);
+
+            return accessories;
+
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public List<Accessory> findAccessoryByActive(boolean active) throws Exception {
+        try {
+            List<Accessory> accessories = accessoryRepository.findAccessoryByActive(active);
+
+            return accessories;
+
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public Page<Accessory> findAccessoryByActivePaged(boolean active, Pageable pageable) throws Exception {
+        try {
+            Page<Accessory> accessories = accessoryRepository.findAccessoryByActivePaged(active, pageable);
+
+            return accessories;
+
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
