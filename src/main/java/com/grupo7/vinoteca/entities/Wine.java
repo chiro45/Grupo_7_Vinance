@@ -33,7 +33,7 @@ public class Wine extends Base{
     @Min(value = 100, message = "El precio minimo es 100")
     private long price;
 
-    @Min(value = 0, message = "El precio minimo es 0")
+    @Min(value = 0, message = "El stock minimo es 0")
     private int stock;
 
     private boolean active;

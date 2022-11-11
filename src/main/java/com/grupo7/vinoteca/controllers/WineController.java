@@ -51,7 +51,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
     }
 
     @GetMapping("/searchForPriceUpper")
-    public ResponseEntity<?> findWineForPrice(@RequestParam float price) {
+    public ResponseEntity<?> findWineForPriceUpper(@RequestParam float price) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForPriceUpper(price));
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
     }
 
     @GetMapping("/searchForPriceUpper/paged")
-    public ResponseEntity<?> findWineForPricePaged(@RequestParam float price, Pageable pageable) {
+    public ResponseEntity<?> findWineForPriceUpperPaged(@RequestParam float price, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForPriceUpperPaged(price, pageable));
         } catch (Exception e) {
