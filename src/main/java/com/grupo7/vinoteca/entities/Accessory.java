@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,10 +19,22 @@ import java.util.List;
 @NoArgsConstructor
 public class Accessory extends Base {
 
+    @Size(min = 4,
+            max = 20,
+            message = "El name debe tener entre 4 y 20 caracteres")
     private String name;
+
+    @Size(min = 4,
+            max = 400,
+            message = "description debe tener entre 4 y 400 caracteres")
     private String description;
+
+    @Min(value = 100, message = "El precio minimo es 100")
     private long price;
+
+    @Min(value = 0, message = "El precio minimo es 0")
     private int stock;
+    private boolean active;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_accesory")

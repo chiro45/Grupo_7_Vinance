@@ -23,16 +23,16 @@ public class User  extends Base{
 
     @NotNull
     private String name;
-    //private String lastName;
+
     @NotNull
     @Column(unique = true)
     private String username;
+
     @NotNull
     private String email;
+
     @NotNull
     protected String password;
-    //private String avatar;
-    //private Date birthday;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ticket> ticket;
@@ -40,9 +40,5 @@ public class User  extends Base{
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_rol", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> rol = new HashSet<>();
-
-    /*@ManyToOne
-    @JoinColumn(name = "fk_rol")
-    private Rol rol;*/
 
 }

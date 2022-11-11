@@ -15,9 +15,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class TicketDetail extends Base {
 
-    private int price;
+    private long price;
     private int stock;
-    private int subtotal;
+    private long subtotal;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "fk_wine")

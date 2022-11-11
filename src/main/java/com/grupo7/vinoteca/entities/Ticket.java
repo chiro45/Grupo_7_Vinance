@@ -19,9 +19,10 @@ public class Ticket extends Base {
 
     private long number;
     private Date date;
-    private int total;
+    private long total;
 /*    private String seller;*/
     private String user;
+    private String userSeller;
 
     //@ManyToOne(fetch = FetchType.EAGER)
     //@JoinColumn(name = "fk_seller", nullable = false)
