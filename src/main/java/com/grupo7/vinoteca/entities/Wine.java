@@ -21,7 +21,7 @@ import java.util.List;
 public class Wine extends Base{
 
     @Size(min = 4,
-            max = 20,
+            max = 100,
             message = "El name debe tener entre 4 y 20 caracteres")
     private String name;
 
@@ -40,9 +40,6 @@ public class Wine extends Base{
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_brand")
-    @Size(min = 4,
-            max = 20,
-            message = "brand debe tener entre 4 y 20 caracteres")
     private Brand brand;
 
     @ManyToOne
