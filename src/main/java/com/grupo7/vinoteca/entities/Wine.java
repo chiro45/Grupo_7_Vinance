@@ -23,22 +23,27 @@ public class Wine extends Base{
 
     //private String image;
     private int stock;
+    private boolean active;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_brand")
     private Brand brand;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "fk_category")
+    @ManyToOne
+    @JoinTable(name = "wine_category", joinColumns = @JoinColumn(name = "wine_id"), inverseJoinColumns = @JoinColumn(name = "category_id"))
+    //@JoinColumn(name = "fk_category")
     private Category category;
 
     //optional == si o si necesita un varietal
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "fk_varietal")
+    @ManyToOne
+    @JoinTable(name = "wine_varietal", joinColumns = @JoinColumn(name = "wine_id"), inverseJoinColumns = @JoinColumn(name = "varietal_id"))
+    //@JoinColumn(name = "fk_varietal")
     private Varietal varietal;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_wine")
     private List<ImageWine> imagesWine = new ArrayList<ImageWine>();
 
+
+    //@JoinTable(name = "user_rol", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
 }

@@ -20,7 +20,7 @@ public class Ticket extends Base {
     private long number;
     private Date date;
     private int total;
-    private String seller;
+/*    private String seller;*/
     private String user;
 
     //@ManyToOne(fetch = FetchType.EAGER)
