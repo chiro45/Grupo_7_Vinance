@@ -38,7 +38,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     @Override
     public Page<Accessory> findAccesoryByName(String name, Pageable pageable) throws Exception {
         try {
-            Page<Accessory> accessories = accessoryRepository.findAccesoryByName(name, pageable);
+            Page<Accessory> accessories = accessoryRepository.findAccesoryByNamePaged(name, pageable);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -58,7 +58,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     @Override
     public Page<Accessory> findAccesoryByPrice(float price, Pageable pageable) throws Exception {
         try {
-            Page<Accessory> accessories = accessoryRepository.findAccesoryByPrice(price, pageable);
+            Page<Accessory> accessories = accessoryRepository.findAccesoryByPricePaged(price, pageable);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -78,7 +78,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     @Override
     public Page<Accessory> findAccesoryByPriceMore(float price, Pageable pageable) throws Exception {
         try {
-            Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceMore(price, pageable);
+            Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceMorePaged(price, pageable);
             return accessories;
         }catch ( Exception e){
             throw new Exception(e.getMessage());

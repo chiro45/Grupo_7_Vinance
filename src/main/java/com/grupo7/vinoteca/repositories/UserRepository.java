@@ -21,7 +21,7 @@ public interface UserRepository extends BaseRepository<User, Long> {
     List<User> findUserByName(String name);
 
     @Query(value = "SELECT * FROM users WHERE users.name LIKE %:name% ", countQuery = "SELECT count(*) FROM wines", nativeQuery = true)
-    Page<User> findUserByName(String name, Pageable pageable);
+    Page<User> findUserByNamePaged(String name, Pageable pageable);
 
 
     Optional<User> findByUsername(String username);
