@@ -84,7 +84,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         }
     }
 
-    @GetMapping("/searchByStock")
+    /*@GetMapping("/searchByStock")
     public ResponseEntity<?> findAccessoryByStock() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByStock());
@@ -100,7 +100,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }
+    }*/
 
     @GetMapping("/searchByActive")
     public ResponseEntity<?> findAccessoryByActive(@RequestParam boolean active) {
