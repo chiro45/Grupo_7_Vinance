@@ -64,10 +64,13 @@ public class AuthController {
                 .build();
 
         Set<Rol> roles = new HashSet();
+        if (userDto.getRoles().contains("seller")) {
+            roles.add(rolService.getByRoles(Roles.ROLE_SELLER).get());}
+        else {
         roles.add(rolService.getByRoles(Roles.ROLE_USER).get());
+        }
 
-        if (userDto.getRoles().contains("seller"))
-            roles.add(rolService.getByRoles(Roles.ROLE_SELLER).get());
+
 
         user.setRol(roles);
         userServiceImpl.save(user);
