@@ -38,8 +38,8 @@ public class Wine extends Base{
 
     private boolean active;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_brand")
+    @ManyToOne
+    @JoinTable(name = "wine_brand", joinColumns = @JoinColumn(name = "wine_id"), inverseJoinColumns = @JoinColumn(name = "brand_id"))
     private Brand brand;
 
     @ManyToOne

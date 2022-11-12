@@ -193,4 +193,6 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
     public ResponseEntity<?> delete(Long id) {
         return super.delete(id);
     }
+
+
 }
