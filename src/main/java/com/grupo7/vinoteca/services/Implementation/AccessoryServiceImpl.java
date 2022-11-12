@@ -109,7 +109,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }
     }
 
-    @Override
+    /*@Override
     public List<Accessory> findAccessoryByStock() throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccessoryByStock();
@@ -131,7 +131,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
     @Override
     public List<Accessory> findAccessoryByActive(boolean active) throws Exception {
