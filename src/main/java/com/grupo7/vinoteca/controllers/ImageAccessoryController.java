@@ -25,7 +25,6 @@ public class ImageAccessoryController extends BaseControllerImpl<ImageAccessory,
     public ResponseEntity<?> update(ImageAccessory entity, Long id) {
         return super.update(entity, id);
     }
-
     @Override
     @PreAuthorize("hasRole('SELLER')")
     public ResponseEntity<?> delete(Long id) {
