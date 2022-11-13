@@ -67,11 +67,21 @@ public abstract class BaseServiceImp <E extends Base, ID extends Serializable> i
     @Transactional
     public E update(E entity, ID id) throws Exception {
         try{
-            Optional<E> optional = repository.findById(id);
+            /*Optional<E> optional = repository.findById(id);
             E seller = optional.get();
             seller = repository.save(entity);
             repository.deleteById(id);
-            return seller;
+            return seller;*/
+            if (repository.existsById(id))  {
+                entity.setId((Long) id);
+                repository.save(entity);
+            }
+           /* Optional<E> optional = repository.findById(id);
+            repository.
+            optional.get() = entity; */
+           /* seller = repository.save(entity);
+            repository.deleteById(id);*/
+            return entity;
         }catch (Exception e){
             throw new Exception(e.getMessage());
         }
