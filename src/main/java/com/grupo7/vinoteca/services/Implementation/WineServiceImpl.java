@@ -17,7 +17,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Autowired
     private WineRepository wineRepository;
 
-    public WineServiceImpl(BaseRepository<Wine, Long> baseRepository){
+    public WineServiceImpl(BaseRepository<Wine, Long> baseRepository) {
         super(baseRepository);
     }
 
@@ -28,7 +28,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             List<Wine> arrWines = wineRepository.findByNameContaining(name);
             return arrWines;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -38,13 +38,13 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         try {
             Page<Wine> arrWines = wineRepository.findByNameContaining(name, pageable);
             return arrWines;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
 
     //buscar vinos por varietal
-    @Override
+    /*@Override
     public List<Wine> findWineForVarietal(String varietal) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineForVarietal(varietal);
@@ -66,7 +66,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
     //buscar vinos por precio
     @Override
@@ -76,7 +76,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -88,7 +88,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -100,7 +100,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -112,7 +112,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -124,7 +124,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -136,12 +136,12 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
 
-    @Override
+   /*@Override
     public List<Wine> findWineForBrand(String brand) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineForBrand(brand);
@@ -163,9 +163,9 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public List<Wine> findWineForCategory(String category) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineForCategory(category);
@@ -175,9 +175,9 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception {
         try {
             Page<Wine> arrWiness = wineRepository.findWineForCategoryPaged(category, pageable);
@@ -187,7 +187,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
     @Override
     public List<Wine> findWineHasStock(int stock) throws Exception {
@@ -196,7 +196,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -208,7 +208,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
             return arrWiness;
 
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }

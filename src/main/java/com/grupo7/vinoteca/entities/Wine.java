@@ -18,7 +18,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Wine extends Base{
+public class Wine extends Base {
 
     @Size(min = 4,
             max = 100,
@@ -53,7 +53,6 @@ public class Wine extends Base{
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_wine")
     private List<ImageWine> imagesWine = new ArrayList<ImageWine>();
-
 
 
 }
