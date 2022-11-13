@@ -31,7 +31,7 @@ public class Wine extends Base{
     private String description;
 
     @Min(value = 100, message = "El precio minimo es 100")
-    private long price;
+    private float price;
 
     @Min(value = 0, message = "El stock minimo es 0")
     private int stock;

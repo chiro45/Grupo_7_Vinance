@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public interface WineService extends BaseService<Wine, Long> {
 
-    Wine findWineForName(String name) throws Exception;
-    //Page<Wine> findWineForNamePaged(String name, Pageable pageable) throws Exception;
+    List<Wine> findWineForName(String name) throws Exception;
+    Page<Wine> findWineForNamePaged(String name, Pageable pageable) throws Exception;
 
     List<Wine> findWineForVarietal(String varietal) throws Exception;
     Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception;
@@ -22,9 +22,6 @@ public interface WineService extends BaseService<Wine, Long> {
     List<Wine> findWineForPriceLower(float price) throws Exception;
     Page<Wine> findWineForPriceLowerPaged(float price, Pageable pageable) throws Exception;
 
-    List<Wine> findWineForPriceEquals(float price) throws Exception;
-    Page<Wine> findWineForPriceEqualsPaged(float price, Pageable pageable) throws Exception;
-
     List<Wine> findWineForActive(boolean active) throws Exception;
     Page<Wine> findWineForActivePaged(boolean active, Pageable pageable) throws Exception;
 
@@ -34,7 +31,7 @@ public interface WineService extends BaseService<Wine, Long> {
     List<Wine> findWineForCategory(String category) throws Exception;
     Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception;
 
-    List<Wine> findWineHasStock() throws Exception;
-    Page<Wine> findWineHasStockPaged(Pageable pageable) throws Exception;
+    List<Wine> findWineHasStock(int stock) throws Exception;
+    Page<Wine> findWineHasStockPaged(int stock, Pageable pageable) throws Exception;
 
 }

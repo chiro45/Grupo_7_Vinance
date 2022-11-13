@@ -23,31 +23,25 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
     //buscar vinos por nombre
     @Override
-    public Wine findWineForName(String name) throws Exception {
+    public List<Wine> findWineForName(String name) throws Exception {
         try {
-            List<Wine> arrWines = wineRepository.findWineForName(name);
 
-            if(arrWines.size() > 0){
-
-                return arrWines.get(0);
-            }else{
-                return null;
-            }
-
+            List<Wine> arrWines = wineRepository.findByNameContaining(name);
+            return arrWines;
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
     }
 
-//    @Override
-//    public Page<Wine> findWineForNamePaged(String name, Pageable pageable) throws Exception {
-//        try {
-//            Page<Wine> arrWines = wineRepository.findWineForNamePaged(name, pageable);
-//            return arrWines.get(0);
-//        }catch ( Exception e){
-//            throw new Exception(e.getMessage());
-//        }
-//    }
+    @Override
+    public Page<Wine> findWineForNamePaged(String name, Pageable pageable) throws Exception {
+        try {
+            Page<Wine> arrWines = wineRepository.findByNameContaining(name, pageable);
+            return arrWines;
+        }catch ( Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
 
     //buscar vinos por varietal
     @Override
@@ -78,7 +72,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public List<Wine> findWineForPriceUpper(float price) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForPriceUpper(price);
+            List<Wine> arrWiness = wineRepository.findWineByPriceGreaterThanEqual(price);
 
             return arrWiness;
 
@@ -90,7 +84,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForPriceUpperPaged(float price, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForPriceUpperPaged(price, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByPriceGreaterThanEqual(price, pageable);
 
             return arrWiness;
 
@@ -102,7 +96,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public List<Wine> findWineForPriceLower(float price) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForPriceLower(price);
+            List<Wine> arrWiness = wineRepository.findWineByPriceLessThanEqual(price);
 
             return arrWiness;
 
@@ -114,31 +108,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForPriceLowerPaged(float price, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForPriceLowerPaged(price, pageable);
-
-            return arrWiness;
-
-        }catch ( Exception e){
-            throw new Exception(e.getMessage());
-        }
-    }
-
-    @Override
-    public List<Wine> findWineForPriceEquals(float price) throws Exception {
-        try {
-            List<Wine> arrWiness = wineRepository.findWineForPriceEquals(price);
-
-            return arrWiness;
-
-        }catch ( Exception e){
-            throw new Exception(e.getMessage());
-        }
-    }
-
-    @Override
-    public Page<Wine> findWineForPriceEqualsPaged(float price, Pageable pageable) throws Exception {
-        try {
-            Page<Wine> arrWiness = wineRepository.findWineForPriceEqualsPaged(price, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByPriceLessThanEqual(price, pageable);
 
             return arrWiness;
 
@@ -150,7 +120,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public List<Wine> findWineForActive(boolean active) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForActive(active);
+            List<Wine> arrWiness = wineRepository.findWineByActiveEquals(active);
 
             return arrWiness;
 
@@ -162,7 +132,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForActivePaged(boolean active, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForActivePaged(active, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByActiveEquals(active, pageable);
 
             return arrWiness;
 
@@ -220,9 +190,9 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     @Override
-    public List<Wine> findWineHasStock() throws Exception {
+    public List<Wine> findWineHasStock(int stock) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineHasStock();
+            List<Wine> arrWiness = wineRepository.findWineByStockGreaterThanEqual(stock);
 
             return arrWiness;
 
@@ -232,9 +202,9 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     @Override
-    public Page<Wine> findWineHasStockPaged(Pageable pageable) throws Exception {
+    public Page<Wine> findWineHasStockPaged(int stock, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineHasStockPaged(pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByStockGreaterThanEqual(stock, pageable);
 
             return arrWiness;
 
