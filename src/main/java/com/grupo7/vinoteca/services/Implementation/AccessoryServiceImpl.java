@@ -18,7 +18,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     @Autowired
     private AccessoryRepository accessoryRepository;
 
-    public AccessoryServiceImpl(BaseRepository<Accessory, Long> baseRepository){
+    public AccessoryServiceImpl(BaseRepository<Accessory, Long> baseRepository) {
         super(baseRepository);
     }
 
@@ -26,12 +26,12 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     public List<Accessory> findAccesoryByName(String name) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByName(name);
-            if(accessories.size() > 0){
+            if (accessories.size() > 0) {
                 return accessories;
-            }else{
+            } else {
                 return null;
             }
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -41,7 +41,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByNamePaged(name, pageable);
             return accessories;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -51,7 +51,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByPriceLower(price);
             return accessories;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -61,7 +61,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceLowerPaged(price, pageable);
             return accessories;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -70,7 +70,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpper(price);
             return accessories;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
@@ -80,12 +80,12 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpperPaged(price, pageable);
             return accessories;
-        }catch ( Exception e){
+        } catch (Exception e) {
             throw new Exception(e.getMessage());
         }
     }
 
-    @Override
+   /* @Override
     public List<Accessory> findAccessoryByPriceEquals(float price) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccessoryByPriceEquals(price);
@@ -107,7 +107,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
     /*@Override
     public List<Accessory> findAccessoryByStock() throws Exception {
@@ -133,7 +133,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }
     }*/
 
-    @Override
+   /* @Override
     public List<Accessory> findAccessoryByActive(boolean active) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccessoryByActive(active);
@@ -155,6 +155,6 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }
+    }*/
 
 }

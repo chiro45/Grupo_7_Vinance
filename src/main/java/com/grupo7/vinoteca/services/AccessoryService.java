@@ -19,11 +19,11 @@ public interface AccessoryService extends BaseService<Accessory, Long> {
 
     List<Accessory> findAccesoryByPriceUpper(float price) throws Exception;
     Page<Accessory> findAccesoryByPriceUpperPaged(float price, Pageable pageable) throws Exception;
-    List<Accessory> findAccessoryByPriceEquals(float price) throws Exception;
-    Page<Accessory> findAccessoryByPriceEqualsPaged(float price, Pageable pageable) throws Exception;
+    //List<Accessory> findAccessoryByPriceEquals(float price) throws Exception;
+    //Page<Accessory> findAccessoryByPriceEqualsPaged(float price, Pageable pageable) throws Exception;
     //List<Accessory> findAccessoryByStock() throws Exception;
     //Page<Accessory> findAccessoryByStockPaged(Pageable pageable) throws Exception;
-    List<Accessory> findAccessoryByActive(boolean active) throws Exception;
-    Page<Accessory> findAccessoryByActivePaged(boolean active, Pageable pageable) throws Exception;
+    //List<Accessory> findAccessoryByActive(boolean active) throws Exception;
+    //Page<Accessory> findAccessoryByActivePaged(boolean active, Pageable pageable) throws Exception;
 
 }

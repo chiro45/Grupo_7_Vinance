@@ -29,11 +29,11 @@ public interface AccessoryRepository  extends BaseRepository<Accessory, Long>  {
     @Query(value = "SELECT * FROM accessories WHERE accessories.price >= :price ", countQuery = "SELECT count(*) FROM accessories",nativeQuery = true)
     Page<Accessory> findAccesoryByPriceUpperPaged(float price, Pageable pageable);
 
-    @Query(value = "SELECT * FROM accessories WHERE accessories.price = :price ", nativeQuery = true)
-    List<Accessory> findAccessoryByPriceEquals(float price);
+    //@Query(value = "SELECT * FROM accessories WHERE accessories.price = :price ", nativeQuery = true)
+    //List<Accessory> findAccessoryByPriceEquals(float price);
 
-    @Query(value = "SELECT * FROM accessories WHERE accessories.price = :price ", countQuery = "SELECT count(*) FROM accessories",nativeQuery = true)
-    Page<Accessory> findAccessoryByPriceEqualsPaged(float price, Pageable pageable);
+    //@Query(value = "SELECT * FROM accessories WHERE accessories.price = :price ", countQuery = "SELECT count(*) FROM accessories",nativeQuery = true)
+    //Page<Accessory> findAccessoryByPriceEqualsPaged(float price, Pageable pageable);
 
     //@Query(value = "SELECT * FROM accessories WHERE accessories.stock > 0 ", nativeQuery = true)
     //List<Accessory> findAccessoryByStock();
@@ -41,11 +41,11 @@ public interface AccessoryRepository  extends BaseRepository<Accessory, Long>  {
     //@Query(value = "SELECT * FROM accessories WHERE accessories.stock > 0 ", countQuery = "SELECT count(*) FROM accessories", nativeQuery = true)
     //Page<Accessory> findAccessoryByStockPaged(Pageable pageable);
 
-    @Query(value = "SELECT * FROM accessories WHERE accessories.active =true", nativeQuery = true)
-    List<Accessory> findAccessoryByActive(boolean active);
+    //@Query(value = "SELECT * FROM accessories WHERE accessories.active =true", nativeQuery = true)
+    //List<Accessory> findAccessoryByActive(boolean active);
 
-    @Query(value = "SELECT * FROM accessories WHERE accessories.active =true ", countQuery = "SELECT count(*) FROM accessories", nativeQuery = true)
-    Page<Accessory> findAccessoryByActivePaged(boolean active, Pageable pageable);
+    //@Query(value = "SELECT * FROM accessories WHERE accessories.active =true ", countQuery = "SELECT count(*) FROM accessories", nativeQuery = true)
+    //Page<Accessory> findAccessoryByActivePaged(boolean active, Pageable pageable);
 
 
 }

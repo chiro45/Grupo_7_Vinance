@@ -1,4 +1,5 @@
 package com.grupo7.vinoteca.controllers;
+
 import com.grupo7.vinoteca.controllers.BaseControllerImp.BaseControllerImpl;
 import com.grupo7.vinoteca.entities.Accessory;
 import com.grupo7.vinoteca.services.Implementation.AccessoryServiceImpl;
@@ -14,19 +15,19 @@ import org.springframework.web.bind.annotation.*;
 public class AccessoryController extends BaseControllerImpl<Accessory, AccessoryServiceImpl> {
 
     @GetMapping("/search")
-    public ResponseEntity<?> findAccesoryByName(@RequestParam String name){
-        try{
+    public ResponseEntity<?> findAccesoryByName(@RequestParam String name) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByName(name));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/search/paged")
-    public ResponseEntity<?> findAccesoryByName(@RequestParam String name, Pageable pageable){
-        try{
+    public ResponseEntity<?> findAccesoryByName(@RequestParam String name, Pageable pageable) {
+        try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByName(name, pageable));
-        }catch (Exception e){
+        } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
@@ -57,6 +58,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
+
     @GetMapping("/searchByPriceUpper/paged")
     public ResponseEntity<?> findAccesoryByPriceUpperPaged(@RequestParam float price, Pageable pageable) {
         try {
@@ -66,7 +68,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         }
     }
 
-    @GetMapping("/searchByPriceEquals")
+   /* @GetMapping("/searchByPriceEquals")
     public ResponseEntity<?> findAccessoryByPriceEquals(@RequestParam float price) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceEquals(price));
@@ -82,7 +84,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }
+    }*/
 
     /*@GetMapping("/searchByStock")
     public ResponseEntity<?> findAccessoryByStock() {
@@ -102,7 +104,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         }
     }*/
 
-    @GetMapping("/searchByActive")
+    /*@GetMapping("/searchByActive")
     public ResponseEntity<?> findAccessoryByActive(@RequestParam boolean active) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByActive(active));
@@ -118,7 +120,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }
+    }*/
 
 
     @Override
