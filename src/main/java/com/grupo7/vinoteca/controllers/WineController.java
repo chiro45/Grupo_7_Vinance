@@ -158,6 +158,8 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
+
+
     @Override
     @PreAuthorize("hasRole('SELLER')")
     public ResponseEntity<?> save(Wine entity) {
@@ -175,6 +177,8 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
     public ResponseEntity<?> delete(Long id) {
         return super.delete(id);
     }
+
+
 
 
 }

@@ -25,8 +25,8 @@ public class Accessory extends Base {
     private String name;
 
     @Size(min = 4,
-            max = 400,
-            message = "description debe tener entre 4 y 400 caracteres")
+            max = 1000,
+            message = "description debe tener entre 4 y 1000 caracteres")
     private String description;
 
     @Min(value = 100, message = "El precio minimo es 100")
@@ -38,7 +38,8 @@ public class Accessory extends Base {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "fk_accesory")
-    private List<ImageAccessory> imagesAccesory = new ArrayList<ImageAccessory>();
+    private List<ImageAccessory> images = new ArrayList<ImageAccessory>();
 
+    private String type = "Accessory";
 
 }
