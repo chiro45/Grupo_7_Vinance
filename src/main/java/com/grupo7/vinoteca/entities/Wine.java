@@ -54,7 +54,7 @@ public class Wine extends Base {
     @JoinColumn(name = "fk_wine")
     private List<ImageWine> images = new ArrayList<ImageWine>();
 
-    private String type = "Wine";
+    private String type = "Wines";
 
 
 }

@@ -40,6 +40,6 @@ public class Accessory extends Base {
     @JoinColumn(name = "fk_accesory")
     private List<ImageAccessory> images = new ArrayList<ImageAccessory>();
 
-    private String type = "Accessory";
+    private String type = "Accessories";
 
 }
