@@ -44,10 +44,10 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     //buscar vinos por varietal
-    /*@Override
+    @Override
     public List<Wine> findWineForVarietal(String varietal) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForVarietal(varietal);
+            List<Wine> arrWiness = wineRepository.findWineByVarietal_Varietal(varietal);
 
             return arrWiness;
 
@@ -59,14 +59,14 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForVarietalPaged(varietal, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByVarietal_Varietal(varietal, pageable);
 
             return arrWiness;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }*/
+    }
 
     //buscar vinos por precio
     @Override
@@ -141,10 +141,10 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
         }
     }
 
-   /*@Override
+   @Override
     public List<Wine> findWineForBrand(String brand) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForBrand(brand);
+            List<Wine> arrWiness = wineRepository.findWineByBrand_Brand(brand);
 
             return arrWiness;
 
@@ -156,38 +156,38 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForBrandPaged(String brand, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForBrandPaged(brand, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByBrand_Brand(brand, pageable);
 
             return arrWiness;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public List<Wine> findWineForCategory(String category) throws Exception {
         try {
-            List<Wine> arrWiness = wineRepository.findWineForCategory(category);
+            List<Wine> arrWiness = wineRepository.findWineByCategory_Category(category);
 
             return arrWiness;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }*/
+    }
 
-    /*@Override
+    @Override
     public Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineForCategoryPaged(category, pageable);
+            Page<Wine> arrWiness = wineRepository.findWineByCategory_Category(category, pageable);
 
             return arrWiness;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
         }
-    }*/
+    }
 
     @Override
     public List<Wine> findWineHasStock(int stock) throws Exception {

@@ -14,8 +14,8 @@ public interface WineService extends BaseService<Wine, Long> {
 
     Page<Wine> findWineForNamePaged(String name, Pageable pageable) throws Exception;
 
-    /*List<Wine> findWineForVarietal(String varietal) throws Exception;
-    Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception;*/
+    List<Wine> findWineForVarietal(String varietal) throws Exception;
+    Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception;
 
     List<Wine> findWineForPriceUpper(float price) throws Exception;
 
@@ -29,11 +29,11 @@ public interface WineService extends BaseService<Wine, Long> {
 
     Page<Wine> findWineForActivePaged(boolean active, Pageable pageable) throws Exception;
 
-   /* List<Wine> findWineForBrand(String brand) throws Exception;
-    Page<Wine> findWineForBrandPaged(String brand, Pageable pageable) throws Exception;*/
+    List<Wine> findWineForBrand(String brand) throws Exception;
+    Page<Wine> findWineForBrandPaged(String brand, Pageable pageable) throws Exception;
 
-   /* List<Wine> findWineForCategory(String category) throws Exception;
-    Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception;*/
+    List<Wine> findWineForCategory(String category) throws Exception;
+    Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception;
 
     List<Wine> findWineHasStock(int stock) throws Exception;
 

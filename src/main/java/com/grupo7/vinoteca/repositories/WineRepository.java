@@ -1,5 +1,6 @@
 package com.grupo7.vinoteca.repositories;
 
+import com.grupo7.vinoteca.entities.Varietal;
 import com.grupo7.vinoteca.entities.Wine;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,11 @@ public interface WineRepository extends BaseRepository<Wine, Long> {
     List<Wine> findWineForVarietal(String varietal);
     @Query(value = "SELECT * FROM wines WHERE wines.varietal LIKE %:varietal% ", countQuery = "SELECT count(*) FROM wines",nativeQuery = true)
     Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable);*/
+
+    //funciona
+    List<Wine> findWineByVarietal_Varietal(String varietal);
+
+    Page<Wine> findWineByVarietal_Varietal(String varietal, Pageable pageable);
 
     //No funciona
    /* @Query(value = "SELECT * FROM wines WHERE wines.price >= :price ", nativeQuery = true)
@@ -67,11 +73,21 @@ public interface WineRepository extends BaseRepository<Wine, Long> {
     @Query(value = "SELECT * FROM wines WHERE wines.brand LIKE %:brand% ", countQuery = "SELECT count(*) FROM wines", nativeQuery = true)
     Page<Wine> findWineForBrandPaged(String brand, Pageable pageable);*/
 
+    //funciona
+    List<Wine> findWineByBrand_Brand(String brand);
+
+    Page<Wine> findWineByBrand_Brand(String brand, Pageable pageable);
+
     //No funciona
     /*@Query(value = "SELECT * FROM wines WHERE wines.category LIKE %:category% ", nativeQuery = true)
     List<Wine> findWineForCategory(String category);
     @Query(value = "SELECT * FROM wines WHERE wines.category LIKE %:category% ", countQuery = "SELECT count(*) FROM wines", nativeQuery = true)
     Page<Wine> findWineForCategoryPaged(String category, Pageable pageable);*/
+
+    //funciona
+    List<Wine> findWineByCategory_Category(String category);
+
+    Page<Wine> findWineByCategory_Category(String category, Pageable pageable);
 
     //No funciona
     /*@Query(value = "SELECT * FROM wines WHERE wines.stock > 0 ", nativeQuery = true)

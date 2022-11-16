@@ -32,7 +32,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
-   /* @GetMapping("/searchVarietal")
+   @GetMapping("/searchVarietal")
     public ResponseEntity<?> findWineForVarietal(@RequestParam String varietal) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForVarietal(varietal));
@@ -48,7 +48,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }*/
+    }
 
     @GetMapping("/searchForPriceUpper")
     public ResponseEntity<?> findWineForPriceUpper(@RequestParam float price) {
@@ -104,7 +104,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
-    /*@GetMapping("/searchForBrand")
+    @GetMapping("/searchForBrand")
     public ResponseEntity<?> findWineForBrand(@RequestParam String brand) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForBrand(brand));
@@ -120,9 +120,9 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }*/
+    }
 
-   /* @GetMapping("/searchForCategory")
+   @GetMapping("/searchForCategory")
     public ResponseEntity<?> findWineForCategory(@RequestParam String category) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findWineForCategory(category));
@@ -138,7 +138,7 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
-    }*/
+    }
 
     @GetMapping("/searchForStock")
     public ResponseEntity<?> findWineHasStock(@RequestParam int stock) {
