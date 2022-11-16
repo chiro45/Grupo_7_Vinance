@@ -70,7 +70,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
 
     //buscar vinos por precio
     @Override
-    public List<Wine> findWineForPriceUpper(float price) throws Exception {
+    public List<Wine> findWineForPriceUpper(double price) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineByPriceGreaterThanEqual(price);
 
@@ -82,7 +82,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     @Override
-    public Page<Wine> findWineForPriceUpperPaged(float price, Pageable pageable) throws Exception {
+    public Page<Wine> findWineForPriceUpperPaged(double price, Pageable pageable) throws Exception {
         try {
             Page<Wine> arrWiness = wineRepository.findWineByPriceGreaterThanEqual(price, pageable);
 
@@ -94,7 +94,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     @Override
-    public List<Wine> findWineForPriceLower(float price) throws Exception {
+    public List<Wine> findWineForPriceLower(double price) throws Exception {
         try {
             List<Wine> arrWiness = wineRepository.findWineByPriceLessThanEqual(price);
 
@@ -106,7 +106,7 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     }
 
     @Override
-    public Page<Wine> findWineForPriceLowerPaged(float price, Pageable pageable) throws Exception {
+    public Page<Wine> findWineForPriceLowerPaged(double price, Pageable pageable) throws Exception {
         try {
             Page<Wine> arrWiness = wineRepository.findWineByPriceLessThanEqual(price, pageable);
 

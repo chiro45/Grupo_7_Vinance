@@ -17,13 +17,13 @@ public interface WineService extends BaseService<Wine, Long> {
     List<Wine> findWineForVarietal(String varietal) throws Exception;
     Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception;
 
-    List<Wine> findWineForPriceUpper(float price) throws Exception;
+    List<Wine> findWineForPriceUpper(double price) throws Exception;
 
-    Page<Wine> findWineForPriceUpperPaged(float price, Pageable pageable) throws Exception;
+    Page<Wine> findWineForPriceUpperPaged(double price, Pageable pageable) throws Exception;
 
-    List<Wine> findWineForPriceLower(float price) throws Exception;
+    List<Wine> findWineForPriceLower(double price) throws Exception;
 
-    Page<Wine> findWineForPriceLowerPaged(float price, Pageable pageable) throws Exception;
+    Page<Wine> findWineForPriceLowerPaged(double price, Pageable pageable) throws Exception;
 
     List<Wine> findWineForActive(boolean active) throws Exception;
 

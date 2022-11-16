@@ -41,9 +41,9 @@ public interface WineRepository extends BaseRepository<Wine, Long> {
     Page<Wine> findWineForPriceUpperPaged(float price, Pageable pageable);*/
 
     //Funciona
-    List<Wine> findWineByPriceGreaterThanEqual(float price);
+    List<Wine> findWineByPriceGreaterThanEqual(double price);
 
-    Page<Wine> findWineByPriceGreaterThanEqual(float price, Pageable pageable);
+    Page<Wine> findWineByPriceGreaterThanEqual(double price, Pageable pageable);
 
     //No funciona
     /*@Query(value = "SELECT * FROM wines WHERE wines.price <= :price ", nativeQuery = true)
@@ -52,9 +52,9 @@ public interface WineRepository extends BaseRepository<Wine, Long> {
     Page<Wine> findWineForPriceLowerPaged(float price, Pageable pageable);*/
 
     //Funciona
-    List<Wine> findWineByPriceLessThanEqual(float price);
+    List<Wine> findWineByPriceLessThanEqual(double price);
 
-    Page<Wine> findWineByPriceLessThanEqual(float price, Pageable pageable);
+    Page<Wine> findWineByPriceLessThanEqual(double price, Pageable pageable);
 
     //No funciona
     /*@Query(value = "SELECT * FROM wines WHERE wines.active LIKE :active ", nativeQuery = true)
