@@ -64,9 +64,11 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForVarietalPaged(String varietal, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineByVarietal_Varietal(varietal, pageable);
-
-            return arrWiness;
+            List<Wine> arrWines = wineRepository.findWineByVarietal_Varietal(varietal);
+            int start  =(int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), arrWines.size());
+            Page<Wine> page = new PageImpl<>(arrWines.subList(start,end), pageable,arrWines.size() );
+            return page;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
@@ -185,9 +187,12 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
     @Override
     public Page<Wine> findWineForCategoryPaged(String category, Pageable pageable) throws Exception {
         try {
-            Page<Wine> arrWiness = wineRepository.findWineByCategory_Category(category, pageable);
+            List<Wine> arrWines = wineRepository.findWineByCategory_Category(category);
 
-            return arrWiness;
+            int start  =(int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), arrWines.size());
+            Page<Wine> page = new PageImpl<>(arrWines.subList(start,end), pageable,arrWines.size() );
+            return page;
 
         }catch ( Exception e){
             throw new Exception(e.getMessage());
