@@ -20,7 +20,7 @@ Jofré Lautaro: Java, C++, Python.
 
 Pitton Federico: Java, JavaScript, HTML, CSS, Git, MySql
 
-Zuñiga Candela
+Zuñiga Candela: Java, Python, C#, HTML, Git, MySql.
 
 Zuñiga Maximiliano: Java, C++, Python, JavaScript, HTML, CSS, Git...
 
