@@ -17,7 +17,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     @GetMapping("/search")
     public ResponseEntity<?> findAccesoryByName(@RequestParam String name) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByName(name));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByName(name));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
@@ -26,43 +26,43 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     @GetMapping("/search/paged")
     public ResponseEntity<?> findAccesoryByName(@RequestParam String name, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByName(name, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByNamePaged(name, pageable));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchByPriceLower")
-    public ResponseEntity<?> findAccesoryByPriceLower(@RequestParam float price) {
+    public ResponseEntity<?> findAccesoryByPriceLower(@RequestParam double price) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByPriceLower(price));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceLower(price));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchByPriceLower/paged")
-    public ResponseEntity<?> findAccesoryByPriceLowerPaged(@RequestParam float price, Pageable pageable) {
+    public ResponseEntity<?> findAccesoryByPriceLowerPaged(@RequestParam double price, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByPriceLowerPaged(price, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceLowerPaged(price, pageable));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchByPriceUpper")
-    public ResponseEntity<?> findAccesoryByPriceUpper(@RequestParam float price) {
+    public ResponseEntity<?> findAccesoryByPriceUpper(@RequestParam double price) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByPriceUpper(price));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceUpper(price));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
     }
 
     @GetMapping("/searchByPriceUpper/paged")
-    public ResponseEntity<?> findAccesoryByPriceUpperPaged(@RequestParam float price, Pageable pageable) {
+    public ResponseEntity<?> findAccesoryByPriceUpperPaged(@RequestParam double price, Pageable pageable) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAccesoryByPriceUpperPaged(price, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceUpperPaged(price, pageable));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }

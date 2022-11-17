@@ -22,7 +22,7 @@ public class Wine extends Base {
 
     @Size(min = 4,
             max = 100,
-            message = "El name debe tener entre 4 y 20 caracteres")
+            message = "El name debe tener entre 4 y 100 caracteres")
     private String name;
 
     @Size(min = 4,

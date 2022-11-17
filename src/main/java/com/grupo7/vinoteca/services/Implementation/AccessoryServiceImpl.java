@@ -23,7 +23,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public List<Accessory> findAccesoryByName(String name) throws Exception {
+    public List<Accessory> findAccessoryByName(String name) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByName(name);
             if (accessories.size() > 0) {
@@ -37,7 +37,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public Page<Accessory> findAccesoryByName(String name, Pageable pageable) throws Exception {
+    public Page<Accessory> findAccessoryByNamePaged(String name, Pageable pageable) throws Exception {
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByNamePaged(name, pageable);
             return accessories;
@@ -47,7 +47,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public List<Accessory> findAccesoryByPriceLower(float price) throws Exception {
+    public List<Accessory> findAccessoryByPriceLower(double price) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByPriceLower(price);
             return accessories;
@@ -57,7 +57,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public Page<Accessory> findAccesoryByPriceLowerPaged(float price, Pageable pageable) throws Exception {
+    public Page<Accessory> findAccessoryByPriceLowerPaged(double price, Pageable pageable) throws Exception {
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceLowerPaged(price, pageable);
             return accessories;
@@ -66,7 +66,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
         }
     }
 
-    public List<Accessory> findAccesoryByPriceUpper(float price) throws Exception {
+    public List<Accessory> findAccessoryByPriceUpper(double price) throws Exception {
         try {
             List<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpper(price);
             return accessories;
@@ -76,7 +76,7 @@ public class AccessoryServiceImpl extends BaseServiceImp<Accessory, Long> implem
     }
 
     @Override
-    public Page<Accessory> findAccesoryByPriceUpperPaged(float price, Pageable pageable) throws Exception {
+    public Page<Accessory> findAccessoryByPriceUpperPaged(double price, Pageable pageable) throws Exception {
         try {
             Page<Accessory> accessories = accessoryRepository.findAccesoryByPriceUpperPaged(price, pageable);
             return accessories;

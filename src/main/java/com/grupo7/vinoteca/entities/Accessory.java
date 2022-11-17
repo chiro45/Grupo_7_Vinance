@@ -20,8 +20,8 @@ import java.util.List;
 public class Accessory extends Base {
 
     @Size(min = 4,
-            max = 20,
-            message = "El name debe tener entre 4 y 20 caracteres")
+            max = 100,
+            message = "El name debe tener entre 4 y 100 caracteres")
     private String name;
 
     @Size(min = 4,
@@ -30,7 +30,7 @@ public class Accessory extends Base {
     private String description;
 
     @Min(value = 100, message = "El precio minimo es 100")
-    private long price;
+    private double price;
 
     @Min(value = 0, message = "El precio minimo es 0")
     private int stock;

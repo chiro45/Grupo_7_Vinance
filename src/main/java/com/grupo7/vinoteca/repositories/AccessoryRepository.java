@@ -18,16 +18,16 @@ public interface AccessoryRepository  extends BaseRepository<Accessory, Long>  {
     Page<Accessory> findAccesoryByNamePaged(String name, Pageable pageable);
 
     @Query(value = "SELECT * FROM accessories WHERE accessories.price <= :price ", nativeQuery = true)
-    List<Accessory> findAccesoryByPriceLower(float price);
+    List<Accessory> findAccesoryByPriceLower(double price);
 
     @Query(value = "SELECT * FROM accessories WHERE accessories.price <= :price ", countQuery = "SELECT count(*) FROM accessories",nativeQuery = true)
-    Page<Accessory> findAccesoryByPriceLowerPaged(float price, Pageable pageable);
+    Page<Accessory> findAccesoryByPriceLowerPaged(double price, Pageable pageable);
 
     @Query(value = "SELECT * FROM accessories WHERE accessories.price >= :price ", nativeQuery = true)
-    List<Accessory> findAccesoryByPriceUpper(float price);
+    List<Accessory> findAccesoryByPriceUpper(double price);
 
     @Query(value = "SELECT * FROM accessories WHERE accessories.price >= :price ", countQuery = "SELECT count(*) FROM accessories",nativeQuery = true)
-    Page<Accessory> findAccesoryByPriceUpperPaged(float price, Pageable pageable);
+    Page<Accessory> findAccesoryByPriceUpperPaged(double price, Pageable pageable);
 
     //@Query(value = "SELECT * FROM accessories WHERE accessories.price = :price ", nativeQuery = true)
     //List<Accessory> findAccessoryByPriceEquals(float price);

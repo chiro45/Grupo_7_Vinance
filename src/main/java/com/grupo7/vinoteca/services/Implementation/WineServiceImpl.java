@@ -6,10 +6,15 @@ import com.grupo7.vinoteca.repositories.WineRepository;
 import com.grupo7.vinoteca.services.WineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineService {
@@ -212,4 +217,38 @@ public class WineServiceImpl extends BaseServiceImp<Wine, Long> implements WineS
             throw new Exception(e.getMessage());
         }
     }
+
+    @Override
+    public List<Wine> findWineByAll(String value) throws Exception {
+        try {
+            List<Wine> arrWines = wineRepository.findWineByBrand_Brand(value);
+            arrWines.addAll( wineRepository.findWineByVarietal_Varietal(value));
+            arrWines.addAll( wineRepository.findWineByCategory_Category(value));
+            arrWines.addAll( wineRepository.findByNameContaining(value));
+            return arrWines;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Override
+    public Page<Wine> findWineByAllPaged(String value, Pageable pageable) throws Exception {
+        try {
+            List<Wine> arrWines = wineRepository.findWineByBrand_Brand(value);
+            arrWines.addAll( wineRepository.findWineByVarietal_Varietal(value));
+            arrWines.addAll( wineRepository.findWineByCategory_Category(value));
+            arrWines.addAll( wineRepository.findByNameContaining(value));
+            arrWines = arrWines.stream().distinct().collect(Collectors.toList());
+            int start  =(int) pageable.getOffset();
+            int end = Math.min((start + pageable.getPageSize()), arrWines.size());
+            Page<Wine> page = new PageImpl<>(arrWines.subList(start,end), pageable,arrWines.size() );
+            return page;
+
+        } catch (Exception e) {
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
 }

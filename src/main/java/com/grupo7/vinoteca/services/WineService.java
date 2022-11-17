@@ -39,4 +39,6 @@ public interface WineService extends BaseService<Wine, Long> {
 
     Page<Wine> findWineHasStockPaged(int stock, Pageable pageable) throws Exception;
 
+    Page<Wine> findWineByAllPaged(String value, Pageable pageable) throws Exception;
+    List<Wine> findWineByAll(String value) throws Exception;
 }

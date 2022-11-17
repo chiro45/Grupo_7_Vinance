@@ -3,7 +3,9 @@ package com.grupo7.vinoteca.controllers;
 import com.grupo7.vinoteca.controllers.BaseControllerImp.BaseControllerImpl;
 import com.grupo7.vinoteca.entities.Wine;
 import com.grupo7.vinoteca.services.Implementation.WineServiceImpl;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -159,6 +161,27 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
     }
 
 
+    @GetMapping("/searchBar/{value}")
+    public ResponseEntity<?> findWineForValue(@PathVariable String value) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(service.findWineByAll(value));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
+        }
+    }
+
+    @GetMapping("/searchBarPaged/{value}/{page}")
+    public ResponseEntity<?> findWineForValuePaged(@PathVariable String value, @PathVariable Integer page) {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).
+                    body(service.findWineByAllPaged(value,
+                            PageRequest.of(page,
+                                    10,
+                                    Sort.by(Sort.Direction.DESC, "id"))));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
+        }
+    }
 
     @Override
     @PreAuthorize("hasRole('SELLER')")

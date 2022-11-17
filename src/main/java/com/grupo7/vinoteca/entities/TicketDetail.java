@@ -15,7 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 public class TicketDetail extends Base {
 
-    private long price;
+    private double price;
     private int stock;
     private long subtotal;
 
