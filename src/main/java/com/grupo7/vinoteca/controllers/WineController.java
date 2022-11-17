@@ -3,6 +3,7 @@ package com.grupo7.vinoteca.controllers;
 import com.grupo7.vinoteca.controllers.BaseControllerImp.BaseControllerImpl;
 import com.grupo7.vinoteca.entities.Wine;
 import com.grupo7.vinoteca.services.Implementation.WineServiceImpl;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(path = "/wines")
 public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
 
+    @Value("${paged.size}")
+    private int pagedSize;
     @GetMapping("/search")
     public ResponseEntity<?> findWineForName(@RequestParam String name) {
         try {
@@ -43,10 +46,12 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
-    @GetMapping("/searchVarietal/paged")
-    public ResponseEntity<?> findWineForVarietalPaged(@RequestParam String varietal, Pageable pageable) {
+    @GetMapping("/searchVarietal/paged/{value}/{page}")
+    public ResponseEntity<?> findWineForVarietalPaged(@PathVariable String value, @PathVariable Integer page) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findWineForVarietalPaged(varietal, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findWineForVarietalPaged(value, PageRequest.of(page,
+                    pagedSize,
+                    Sort.by(Sort.Direction.DESC, "id"))));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
@@ -115,10 +120,12 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
-    @GetMapping("/searchForBrand/paged")
-    public ResponseEntity<?> findWineForBrandPaged(@RequestParam String brand, Pageable pageable) {
+    @GetMapping("/searchForBrand/paged/{value}/{page}")
+    public ResponseEntity<?> findWineForBrandPaged(@PathVariable String value, @PathVariable Integer page) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findWineForBrandPaged(brand, pageable));
+            return ResponseEntity.status(HttpStatus.OK).body(service.findWineForBrandPaged(value,PageRequest.of(page,
+                    pagedSize,
+                    Sort.by(Sort.Direction.DESC, "id"))));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
@@ -133,10 +140,13 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
         }
     }
 
-    @GetMapping("/searchForCategory/paged")
-    public ResponseEntity<?> findWineForCategoryPaged(@RequestParam String category, Pageable pageable) {
+    @GetMapping("/searchForCategory/paged/{value}/{page}")
+    public ResponseEntity<?> findWineForCategoryPaged(@PathVariable String value, @PathVariable Integer page) {
         try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findWineForCategoryPaged(category, pageable));
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(service.findWineForCategoryPaged(value, PageRequest.of(page,
+                            pagedSize,
+                            Sort.by(Sort.Direction.DESC, "id"))));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }
@@ -176,8 +186,8 @@ public class WineController extends BaseControllerImpl<Wine, WineServiceImpl> {
             return ResponseEntity.status(HttpStatus.OK).
                     body(service.findWineByAllPaged(value,
                             PageRequest.of(page,
-                                    10,
-                                    Sort.by(Sort.Direction.DESC, "id"))));
+                            pagedSize,
+                            Sort.by(Sort.Direction.DESC, "id"))));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\": \"" + e.getMessage() + "\"}");
         }

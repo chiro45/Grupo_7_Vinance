@@ -11,7 +11,7 @@ import java.io.Serializable;
 public interface BaseController<E extends Base,ID extends Serializable> {
 
     public ResponseEntity<?> getAll();
-    public ResponseEntity<?> getAll(Pageable pageable);
+    public ResponseEntity<?> getAll(Integer page);
 
     public ResponseEntity<?> getOne(@PathVariable ID id);
 
