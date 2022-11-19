@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccessoryController extends BaseControllerImpl<Accessory, AccessoryServiceImpl> {
 
     @GetMapping("/search")
-    public ResponseEntity<?> findAccesoryByName(@RequestParam String name) {
+    public ResponseEntity<?> findAccessoryByName(@RequestParam String name) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByName(name));
         } catch (Exception e) {
@@ -24,7 +24,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     }
 
     @GetMapping("/search/paged")
-    public ResponseEntity<?> findAccesoryByName(@RequestParam String name, Pageable pageable) {
+    public ResponseEntity<?> findAccessoryByName(@RequestParam String name, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByNamePaged(name, pageable));
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     }
 
     @GetMapping("/searchByPriceLower")
-    public ResponseEntity<?> findAccesoryByPriceLower(@RequestParam double price) {
+    public ResponseEntity<?> findAccessoryByPriceLower(@RequestParam double price) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceLower(price));
         } catch (Exception e) {
@@ -42,7 +42,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     }
 
     @GetMapping("/searchByPriceLower/paged")
-    public ResponseEntity<?> findAccesoryByPriceLowerPaged(@RequestParam double price, Pageable pageable) {
+    public ResponseEntity<?> findAccessoryByPriceLowerPaged(@RequestParam double price, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceLowerPaged(price, pageable));
         } catch (Exception e) {
@@ -51,7 +51,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     }
 
     @GetMapping("/searchByPriceUpper")
-    public ResponseEntity<?> findAccesoryByPriceUpper(@RequestParam double price) {
+    public ResponseEntity<?> findAccessoryByPriceUpper(@RequestParam double price) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceUpper(price));
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class AccessoryController extends BaseControllerImpl<Accessory, Accessory
     }
 
     @GetMapping("/searchByPriceUpper/paged")
-    public ResponseEntity<?> findAccesoryByPriceUpperPaged(@RequestParam double price, Pageable pageable) {
+    public ResponseEntity<?> findAccessoryByPriceUpperPaged(@RequestParam double price, Pageable pageable) {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.findAccessoryByPriceUpperPaged(price, pageable));
         } catch (Exception e) {

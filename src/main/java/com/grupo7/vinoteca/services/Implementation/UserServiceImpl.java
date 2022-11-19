@@ -4,6 +4,7 @@ import com.grupo7.vinoteca.entities.User;
 import com.grupo7.vinoteca.repositories.BaseRepository;
 import com.grupo7.vinoteca.repositories.UserRepository;
 import com.grupo7.vinoteca.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl extends BaseServiceImp<User, Long> implements UserService {
 
-
+    @Autowired
     private UserRepository userRepository;
 
     public UserServiceImpl(BaseRepository<User, Long> baseRepository) {
