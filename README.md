@@ -16,7 +16,7 @@ Tecnologias Integrantes:
 
 Chiroli Luciano: Javascript, Java, HTML5,CSS, MySql
 
-Jofré Lautaro: Java, C++, Python.
+Jofré Lautaro: Java, C++, Python, HTML, CSS.
 
 Pitton Federico: Java, JavaScript, HTML, CSS, Git, MySql
 
